@@ -17,6 +17,8 @@ emailFrom = 'ridammj@yahoo.com'
 emailFromPassword = 'xx'
 emailTo = ['ridammj@gmail.com']
 
+emailNotificationEnabled = True
+macNotificationEnabled = True
 tableHeaders = ['Name', 'Address', 'Date', 'Vaccine type','Available capacity', 'Slots', 'Min age']
 style1 = 'fancy_grid'
 style2 = 'html'
@@ -25,13 +27,16 @@ notificationStrFailure = f" osascript -e 'display notification \"Check terminal\
 
 indoreDistrictId = 314
 minAgeLimit = 18
-eventLoopIntervalInSeconds = 300
+eventLoopIntervalInSeconds = 360
 
 ################################################################
 
 s = sched.scheduler(time.time, time.sleep)
 
 def sendEmail(fromMail,fromMailPassword,toMail,data):
+    if(emailNotificationEnabled == False):
+         print("email notification disabled")
+         return
     try:
         msg = MIMEMultipart('alternative')
         msg['Subject'] = 'Covid Vaccine Availability Alert!!'
@@ -55,7 +60,10 @@ def sendEmail(fromMail,fromMailPassword,toMail,data):
 def actionItem(case, url, data):
     if(case == 1):
         # success with non empty data
-        os.system(notificationStrSuccess)
+        if(macNotificationEnabled == False):
+            print("email notification disabled")
+        else:
+            os.system(notificationStrSuccess)
         print(url)
         print(tabulate(data, headers=tableHeaders, tablefmt=style1))
         sendEmail(emailFrom, emailFromPassword, emailTo, tabulate(data, headers=tableHeaders, tablefmt=style2))
@@ -65,7 +73,10 @@ def actionItem(case, url, data):
         print(data)
     else:
         # failure
-        os.system(notificationStrFailure)
+        if(macNotificationEnabled == False):
+            print("email notification disabled")
+        else:
+            os.system(notificationStrFailure)
         print(url)
         print(data)
         sendEmail(emailFrom, emailFromPassword, emailTo, data)
@@ -106,11 +117,9 @@ def getAvailableSlots(districtId, date, minAge):
 def eventLoop():
     try:
         currentTime = datetime.datetime.now()
-        currentDay = currentTime.day
-        currentMonth = currentTime.month
-        currentYear = currentTime.year
-        todaysDate = f'{currentDay}-{currentMonth}-{currentYear}'
-        tomorrowsDate = f'{currentDay+1}-{currentMonth}-{currentYear}'
+        nextDayTime = currentTime + datetime.timedelta(days=1)
+        todaysDate = f'{currentTime.day}-{currentTime.month}-{currentTime.year}'
+        tomorrowsDate = f'{nextDayTime.day}-{nextDayTime.month}-{nextDayTime.year}'
         # make call for today
         getAvailableSlots(indoreDistrictId, todaysDate, minAgeLimit)
         # and for tomorrow
