@@ -1,9 +1,10 @@
-# 9th May 21 452001 notify vaccine availability
+# 9th May 21 314 notify vaccine availability
 # to install dependencies on mac run -> pip3 install tabulate
 # to start the script python3 nameOfFile.py
 
-
-
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from tabulate import tabulate
 import time
 import sched
@@ -12,22 +13,52 @@ import requests
 import json
 import os
 
-# district codes https://github.com/bhattbhavesh91/cowin-vaccination-slot-availability/blob/main/district_mapping.csv
+emailFrom = 'ridammj@yahoo.com'
+emailFromPassword = 'xx'
+emailTo = ['ridammj@gmail.com']
+
+tableHeaders = ['Name', 'Address', 'Date', 'Vaccine type','Available capacity', 'Slots', 'Min age']
+style1 = 'fancy_grid'
+style2 = 'html'
 notificationStrSuccess = f" osascript -e 'display notification \"Check terminal\" with title \"Vaccine Slot Alert\" subtitle \"Success!!!\" sound name \"Submarine\"'"
 notificationStrFailure = f" osascript -e 'display notification \"Check terminal\" with title \"Script Failure\" subtitle \"Error!!!\" sound name \"Submarine\"'"
+
 indoreDistrictId = 314
 minAgeLimit = 18
-eventLoopIntervalInSeconds = 60
+eventLoopIntervalInSeconds = 300
+
+################################################################
 
 s = sched.scheduler(time.time, time.sleep)
 
+def sendEmail(fromMail,fromMailPassword,toMail,data):
+    try:
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = 'Covid Vaccine Availability Alert!!'
+        msg['From'] = emailFrom
+        msg['To'] = emailTo[0]
+        text = "\n\n"
+        html = f'<html><head></head><body><p>Hi!<br>Please find below available centers<br><br>{data}</p></body></html>'
+        part1 = MIMEText(text, 'plain')
+        part2 = MIMEText(html, 'html')
+        msg.attach(part1)
+        msg.attach(part2)
+        smtpObj = smtplib.SMTP_SSL('smtp.mail.yahoo.com', 465)
+        smtpObj.login(fromMail, fromMailPassword)
+        smtpObj.sendmail(fromMail, toMail, msg.as_string())
+        print("email send")
+        smtpObj.quit()
+    except Exception as e:
+        print(e)
+        print("unable to send email")
 
 def actionItem(case, url, data):
     if(case == 1):
         # success with non empty data
         os.system(notificationStrSuccess)
         print(url)
-        print(data)
+        print(tabulate(data, headers=tableHeaders, tablefmt=style1))
+        sendEmail(emailFrom, emailFromPassword, emailTo, tabulate(data, headers=tableHeaders, tablefmt=style2))
     elif(case == 2):
         # success with empty data
         print(url)
@@ -37,7 +68,7 @@ def actionItem(case, url, data):
         os.system(notificationStrFailure)
         print(url)
         print(data)
-
+        sendEmail(emailFrom, emailFromPassword, emailTo, data)
 
 def getAvailableSlots(districtId, date, minAge):
 
@@ -48,7 +79,7 @@ def getAvailableSlots(districtId, date, minAge):
     r = requests.get(requestURL, headers=requestHeaders)
     pyJson = r.json()
     if(r.status_code != 200):
-        actionItem(3, requestURL,f"unable to fetch, statusCode:{r.status_code}")
+        actionItem(3, requestURL,f'unable to fetch, statusCode:{r.status_code}')
         return
     covidCenters = pyJson['centers']
     notifyList = []
@@ -62,17 +93,15 @@ def getAvailableSlots(districtId, date, minAge):
             covidCenterSessionsDate = sessions['date']
             covidCenterSessionsSlots = sessions['slots']
             covidCenterSessionsVaccine = sessions['vaccine']
-            if(covidCenterSessionsAvailableCapacity >= 0 and covidCenterSessionsMinAgeLimit == minAge):
+            if(covidCenterSessionsAvailableCapacity > 0 and covidCenterSessionsMinAgeLimit == minAge):
                 row = [covidCenterName, covidCenterAddress, covidCenterSessionsDate, covidCenterSessionsVaccine,
                        covidCenterSessionsAvailableCapacity, ','.join(covidCenterSessionsSlots), covidCenterSessionsMinAgeLimit]
                 notifyList.append(row)
 
     if(len(notifyList)):
-        table = tabulate(notifyList, headers=['Name', 'Address', 'Date', 'Vaccine type', 'Available capacity', 'Slots', 'Min age'], tablefmt='fancy_grid')
-        actionItem(1, requestURL, table)
+        actionItem(1, requestURL, notifyList)
     else:
-        actionItem(2, requestURL, "no-data")
-
+        actionItem(2, requestURL, 'no-data')
 
 def eventLoop():
     try:
@@ -87,15 +116,18 @@ def eventLoop():
         # and for tomorrow
         getAvailableSlots(indoreDistrictId, tomorrowsDate, minAgeLimit)
     except:
-        actionItem(3, "unknown-url", "unable to fetch")
+        actionItem(3, 'unknown-url', 'unable to fetch')
     print(time.ctime())
     s.enter(eventLoopIntervalInSeconds, 1, eventLoop)
 
+################################################################
 
 def main():
-    s.enter(eventLoopIntervalInSeconds, 1, eventLoop, ())
+    eventLoop()
+    s.enter(eventLoopIntervalInSeconds, 1, eventLoop)
     s.run()
-
 
 if __name__ == "__main__":
     main()
+
+################################################################
