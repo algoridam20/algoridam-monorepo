@@ -1,7 +1,7 @@
 # [binary-tree-right-side-view](https://leetcode.com/problems/binary-tree-right-side-view/solution/)
 
 
-## Approach 1
+## Approach 1 [bfs]
 
 Time : O(n)
 Space : O(w), worst case w->n/2, i.e. O(n)
@@ -36,7 +36,7 @@ public:
 };
 ```
 
-## Approach 2
+## Approach 2 [pre-order]
 
 Time : O(n)
 Space : O(h), worst case h -> n i.e. O(n)
@@ -63,4 +63,8 @@ public:
 };
 ```
 
-## tags: bfs, queue, preorder, dfs, tree
+## tags:
+$pre-order$
+$tree$
+$bfs$
+$queue$

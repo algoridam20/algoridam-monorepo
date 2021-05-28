@@ -1,6 +1,6 @@
 # [validate-binary-search-tree](https://leetcode.com/problems/validate-binary-search-tree)
 
-## Approach 1 
+## Approach 1 [in-order]
 
 Time : O(n)
 Space : O(h), worst case h -> n i.e. O(n)
@@ -17,7 +17,7 @@ public:
         if(!inOrderTraversal(root->left,prev)) return false;
         if(prev != NULL && prev->val >= root->val) return false;
         prev = root;
-        if(!inOrderTraversal(root->right,prev))return false;
+        if(!inOrderTraversal(root->right,prev)) return false;
         return true;
         
     }
@@ -28,11 +28,10 @@ public:
 };
 ```
 
-## Approach 2 
+## Approach 2 [recursion]
 
 Time : O(n)
 Space : O(h), worst case h -> n i.e. O(n)
-
 
 
 ```cpp
@@ -50,4 +49,8 @@ bool isValidBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode) {
 }
 ```
 
-## tags: dfs, tree, inorder, recursion
+## tags:
+$recursion$
+$tree$
+$dfs$
+$in-order$

@@ -1,6 +1,6 @@
 # [n-ary-tree-preorder-traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/submissions/)
 
-## Approach 1
+## Approach 1 [pre-order]
 
 Time : O(n)
 Space : O(h), worst case h -> n i.e. O(n)
@@ -43,4 +43,8 @@ public:
 };
 ```
 
-## tags: dfs, tree, preorder, recursion
+## tags:
+$recursion$
+$tree$
+$dfs$
+$pre-order$

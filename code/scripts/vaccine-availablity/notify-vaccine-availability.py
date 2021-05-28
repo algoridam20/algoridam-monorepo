@@ -6,19 +6,20 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from tabulate import tabulate
+from dotenv import load_dotenv
 import time
 import sched
 import datetime
 import requests
 import os
 
-emailFrom = 'ridammj@yahoo.com'
-emailFromPassword = 'x'
 
-locationMailList2 = [
-    [['cse170001037@iiti.ac.in', 'ridammj@gmail.com', 'nikhilbarodiya@gmail.com'], 314],
-    [['Pravin.vinayakia@gmail.com', 'imaartijain@gmail.com'], 322],
-]
+load_dotenv()
+emailFrom = os.environ.get("emailFrom")
+emailFromPassword = os.environ.get("emailFromPassword")
+
+dose = "available_capacity_dose1"
+dose2 = "available_capacity_dose2"
 
 locationMailListTest = [
     [['ridammj@gmail.com'], 314]
@@ -27,8 +28,6 @@ locationMailListTest = [
 locationMailList = [
     [['cse170001037@iiti.ac.in', 'ridammj@gmail.com', 'nikhilbarodiya@gmail.com'], 314],
     [['Pravin.vinayakia@gmail.com', 'imaartijain@gmail.com'], 322],
-    [['nishithj7@gmail.com', 'yashlukkad@gmail.com'], 318],
-    [['sawanlukked@gmail.com'], 571]
 ]
 emailNotificationEnabled = True
 macNotificationEnabled = True
@@ -40,7 +39,6 @@ notificationStrSuccess = f"echo -en '\a\a\a'"
 notificationStrFailure = f"echo -en '\a\a\a'"
 
 capacityFilter = 0
-indoreDistrictId = 314
 minAgeLimit = 18
 eventLoopIntervalInSeconds = 60*2
 
@@ -122,11 +120,12 @@ def getAvailableSlots(districtId, date, minAge, emailList):
         covidCenterSessions = covidCenter['sessions']
         for sessions in covidCenterSessions:
             covidCenterSessionsMinAgeLimit = sessions['min_age_limit']
-            covidCenterSessionsAvailableCapacity = sessions['available_capacity']
+            covidCenterSessionsAvailableCapacity = sessions[dose]
             covidCenterSessionsDate = sessions['date']
             covidCenterSessionsSlots = sessions['slots']
             covidCenterSessionsVaccine = sessions['vaccine']
-            if(covidCenterSessionsAvailableCapacity > capacityFilter and covidCenterSessionsMinAgeLimit == minAge and covidCenterSessionsVaccine == 'COVAXIN'):
+            # and covidCenterSessionsVaccine == 'COVAXIN'
+            if(covidCenterSessionsAvailableCapacity > capacityFilter and covidCenterSessionsMinAgeLimit == minAge):
                 row = [covidCenterName, covidCenterAddress, covidCenterSessionsDate, covidCenterSessionsVaccine,
                        covidCenterSessionsAvailableCapacity, ','.join(covidCenterSessionsSlots), covidCenterSessionsMinAgeLimit]
                 notifyList.append(row)
