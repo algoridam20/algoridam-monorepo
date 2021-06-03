@@ -18,7 +18,6 @@ public:
             if(minHeap.size() > K)
                  minHeap.pop();
         }
-        
     }
     
     int add(int num) {
@@ -38,4 +37,5 @@ public:
 
 ## tags:
 $min-heap$
+$stream$
 $heap$
