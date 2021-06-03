@@ -1,6 +1,6 @@
 ### [longest-increasing-subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 
-## Approach 1 Greedy
+## Approach 1 [binary-search,dp]
 
 Time : O(nlogn)
 Space : O(n)
@@ -71,7 +71,7 @@ dp snapshot ()
 0 1 3 7 11 15 
 ```
 
-## Approach 2 DP
+## Approach 2 [dp]
 
 Time : O(n*n)
 Space : O(n)
@@ -98,3 +98,7 @@ public:
     }
 };
 ```
+
+## tags:
+$dp$
+$binary-search$

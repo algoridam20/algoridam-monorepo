@@ -1,4 +1,4 @@
-### [kth-largest-element-in-an-array](https://leetcode.com/problems/kth-largest-element-in-an-array)
+### [kth-largest-element-in-an-array](sl)
 
 ## Approach 1 [min-heap]
 
@@ -42,7 +42,7 @@ Output
 4
 ```
 
-##[Other approaches](https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60309/C%2B%2B-STL-partition-and-heapsort)
+## [Other approaches](https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60309/C%2B%2B-STL-partition-and-heapsort)
 
 ## tags:
 $min-heap$
