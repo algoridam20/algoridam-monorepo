@@ -5,13 +5,14 @@
 Time : O(n)
 Space : O(n)
 
-explanation
+explanation: 
+
 insert everything into unordered_set
-to find the longest constitutive sequence efficiently , make sure you find the constitutive such that no number is iterated more than twice.
+to find the longest consecutive sequence efficiently , make sure you find the consecutive such that no number is iterated more than twice.
 
-it is good idea to go through the sequence from top of the sequence, to avoid repeated access of middle elements .
+it is good idea to go through the sequences from top of the sequence, to avoid repeated access of middle elements .
 
-and a element is at the top or highest value in the sequence if set does not contain value + 1.
+and, a element is at the top or highest value in the sequence if ,the unordered_set does not contain value + 1.
 but contain value - 1;
 
 ```cpp
