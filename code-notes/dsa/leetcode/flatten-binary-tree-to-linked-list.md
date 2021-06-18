@@ -1,4 +1,4 @@
-### [flatten-binary-tree-to-linked-list](https://leetcode.com/problems/latten-binary-tree-to-linked-list)
+### [flatten-binary-tree-to-linked-list](https://leetcode.com/problems/flatten-binary-tree-to-linked-list)
 
 ## Approach 1 [morris-traversal]
 
