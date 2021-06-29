@@ -6,6 +6,8 @@ Time : O(nlogn)
 Space : O(1)
 
 
+implementation 1
+
 ```cpp
 class Solution {
 public:
@@ -42,11 +44,37 @@ public:
 };
 ``` 
 
+implementation 2
+
+code
+```cpp
+vector<int> searchRange(vector<int>& nums, int target) {
+    int idx1 = lower_bound(nums, target);
+    int idx2 = lower_bound(nums, target+1)-1;
+    if (idx1 < nums.size() && nums[idx1] == target)
+        return {idx1, idx2};
+    return {-1, -1};
+}
+
+int lower_bound(vector<int>& nums, int target) {
+    int l = 0, r = nums.size()-1;
+    while (l <= r) {
+        int mid = (r-l)/2+l;
+        if (nums[mid] < target)
+            l = mid+1;
+        else
+            r = mid-1;
+    }
+    return l;
+}
+```
+
 ```cpp
 nums = [5,7,7,8,8,10], target = 8
 
 output = [3,4]
 ```
+
 
 
 ## tags:

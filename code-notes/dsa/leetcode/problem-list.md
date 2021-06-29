@@ -10,18 +10,15 @@ https://leetcode.com/problems/longest-substring-without-repeating-characters/	Me
 [3sum](https://leetcode.com/problems/3sum/)
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/ Easy
 https://leetcode.com/problems/reverse-vowels-of-a-string/	Easy
+https://leetcode.com/problems/group-anagrams/	Medium
+https://leetcode.com/problems/subarray-sum-equals-k/ find cycle using slow fast pointer
 
 Question	Difficulty
 
 https://leetcode.com/problems/median-of-two-sorted-arrays/	Hard
 
 
-
-https://leetcode.com/problems/happy-number/	Medium
-https://leetcode.com/problems/group-anagrams/	Medium
-https://leetcode.com/problems/valid-anagram/	Easy
 https://leetcode.com/problems/subarray-sum-equals-k/	Medium
-https://leetcode.com/problems/sort-characters-by-frequency/	Mediumf
 https://leetcode.com/problems/valid-sudoku/	Medium
 https://leetcode.com/problems/repeated-dna-sequences/	Medium
 https://leetcode.com/problems/sqrtx/	Easy

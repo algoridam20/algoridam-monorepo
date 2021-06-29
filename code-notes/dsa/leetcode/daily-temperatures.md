@@ -5,7 +5,7 @@
 Time : O(n)
 Space : O(n)
 
-explanation
+### explanation
 iterate from back
 and make sure stack top is lower than all elements below
 
@@ -50,7 +50,7 @@ public:
     vector<int> dailyTemperatures(vector<int>& nums) {
         int n = nums.size();
         vector<int> ans(n,0);
-        // inverted index stack
+        // index stack
         stack<int> st;
         for(int i=n-1;i>=0;i--){
             while(!st.empty() && nums[st.top()] <= nums[i])
