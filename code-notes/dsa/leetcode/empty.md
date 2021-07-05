@@ -5,7 +5,7 @@
 Time : O()
 Space : O()
 
-explanation
+### explanation
 
 ```cpp
 code
@@ -24,7 +24,7 @@ output
 Time : O()
 Space : O()
 
-explanation
+### explanation
 
 ```cpp
 code
