@@ -57,7 +57,7 @@ public:
         
         return true;
     }
-    bool solver(int x,int y,vector<vector<char>>& board){
+    bool solver(vector<vector<char>>& board){
         for(int i=0;i<9;i++){
             for(int j=0;j<9;j++){
                 
@@ -66,7 +66,7 @@ public:
                     for(char k='1';k<='9';k++){
                         if(isValidElement(i,j,k,board)){
                             board[i][j] = k;
-                            if(solver(i,j,board))
+                            if(solver(board))
                                 return true;
                             else
                                 board[i][j] = '.';
@@ -81,7 +81,7 @@ public:
         return true;
     }
     void solveSudoku(vector<vector<char>>& board) {
-        bool solved = solver(0,0,board);
+        bool solved = solver(board);
         return;
     }
 };

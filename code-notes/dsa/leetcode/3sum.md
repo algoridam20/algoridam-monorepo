@@ -7,6 +7,8 @@ Space : O(1)
 
 ### explanation
 ```
+x+y+z = 0;
+
 1. sort the array
 2. run 2sum on the array where -1*target is unique -ve elements form given array
 3. while running two sum when target is found 
@@ -42,7 +44,7 @@ public:
         for(int i=0;i<n-1;i++){
             if(nums[i] > 0)
                 break;
-            if(i == 0 || nums[i] != nums[i-1])
+            if(i == 0 || nums[i-1] != nums[i])
                 twoSum(nums,-1*nums[i],i+1,n-1);
         }
         return ANS;
@@ -52,6 +54,8 @@ public:
 
 ```cpp
 input = [-1,0,-2,4,1,0,-1,2,3,2,-1,-4]
+
+sorted input = [-4,-2,-1,-1,-1,0,0,1,2,2,4]
 
 output = [[-4,0,4],[-4,1,3],[-4,2,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
 ```

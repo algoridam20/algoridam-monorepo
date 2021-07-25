@@ -159,6 +159,39 @@ class Solution {
 }
 ```
 
+## Approach 3 [hash-map]
+
+Time : O(nlogn)
+Space : O(n)
+
+### explanation
+```
+at every instance if meeting starts new room is added
+and if meeting ends room is released
+
+max value total rooms can reach is minimum number of rooms required to conduct all meetings
+```
+
+
+```cpp
+class Solution {
+public:
+    int minMeetingRooms(vector<vector<int>>& intervals) {
+      int totalRooms=0,ans=0;
+      map<int,int> m;
+      for(int i=0;i<intervals.size();i++){
+          m[intervals[i][0]]++;
+          m[intervals[i][1]]--;
+      }
+     for(auto it:m){
+          totalRooms+=it->second;
+          ans=max(ans,totalRooms);
+      }
+      return ans;
+    }
+};
+```
+
 ## tags:
 $sort$
 $greedy$

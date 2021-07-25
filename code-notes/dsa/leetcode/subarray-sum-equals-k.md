@@ -7,7 +7,7 @@ Space : O(n)
 
 ### explanation
 ```
-if for a given i there exist a j< i such that
+if for a given i if there exist a j< i such that
 sumTill(i) - K = sumTill(j)
 then sum between i and j = k;
 ```

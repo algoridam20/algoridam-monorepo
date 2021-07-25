@@ -28,6 +28,19 @@ https://leetcode.com/problems/kth-largest-element-in-an-array/
 https://leetcode.com/problems/queue-reconstruction-by-height/	Medium
 https://leetcode.com/problems/merge-intervals/	Medium
 https://leetcode.com/problems/lru-cache/	Medium
+https://leetcode.com/problems/binary-search-tree-iterator/	Medium
+https://leetcode.com/problems/perfect-squares/	Medium
+https://leetcode.com/problems/longest-arithmetic-sequence/	Medium
+https://leetcode.com/problems/longest-consecutive-sequence/	Hard
+https://leetcode.com/problems/unique-paths/	Medium
+https://leetcode.com/problems/closest-binary-search-tree-value/
+https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/
+https://leetcode.com/problems/diameter-of-binary-tree/
+https://leetcode.com/problems/insert-delete-getrandom-o1/	Medium
+https://leetcode.com/problems/minimum-absolute-difference-in-bst/	Easy
+https://leetcode.com/problems/jump-game/
+https://leetcode.com/problems/decode-ways/	Medium
+https://leetcode.com/problems/evaluate-reverse-polish-notation/	Medium
 
 Question	Difficulty
 https://leetcode.com/problems/median-of-two-sorted-arrays/	Hard
@@ -36,10 +49,7 @@ https://leetcode.com/problems/guess-number-higher-or-lower/	Easy
 https://leetcode.com/problems/first-bad-version/	Easy
 https://leetcode.com/problems/find-peak-element/	Medium
 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/	Medium
-https://leetcode.com/problems/find-k-closest-elements/	
-
-https://leetcode.com/problems/closest-binary-search-tree-value/	
-https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/	Medium
+https://leetcode.com/problems/find-k-closest-elements/
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/	Easy
 https://leetcode.com/problems/remove-duplicate-letters	Hard
 https://leetcode.com/problems/maximum-subarray	Easy
@@ -52,23 +62,18 @@ https://leetcode.com/problems/the-skyline-problem/
 https://leetcode.com/problems/count-of-smaller-numbers-after-self/	
 https://leetcode.com/problems/house-robber/	Easy
 https://leetcode.com/problems/maximum-product-subarray/	Medium
-https://leetcode.com/problems/perfect-squares/	Medium
 https://leetcode.com/problems/word-break/	
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/	
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 https://leetcode.com/problems/maximum-depth-of-binary-tree/submissions/	Easy
 https://leetcode.com/problems/invert-binary-tree/	Easy
-https://leetcode.com/problems/binary-search-tree-iterator/	Medium
 https://leetcode.com/problems/merge-two-binary-trees/	Easy
-https://leetcode.com/problems/diameter-of-binary-tree/	Easy
 https://leetcode.com/problems/maximum-binary-tree/submissions/	Medium
-https://leetcode.com/problems/minimum-absolute-difference-in-bst/	Easy
 https://leetcode.com/problems/serialize-and-deserialize-bst/	Medium
 https://leetcode.com/problems/serialize-and-deserialize-binary-tree/	Hard
 https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/	Easy
 https://leetcode.com/problems/same-tree/	Easy
 https://leetcode.com/problems/maximum-depth-of-n-ary-tree/	Easy
-https://leetcode.com/problems/symmetric-tree/	Easy
-https://leetcode.com/problems/decode-string/	Medium
+https://leetcode.com/problems/symmetric-tree/	Easy 
 https://leetcode.com/problems/reconstruct-itinerary/	Medium
 https://leetcode.com/problems/valid-parentheses/	Easy
 https://leetcode.com/problems/unique-email-addresses/	Easy
@@ -81,11 +86,8 @@ https://leetcode.com/problems/spiral-matrix/	Medium
 https://leetcode.com/problems/flatten-nested-list-iterator/	Medium
 https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/	Easy
 https://leetcode.com/problems/plus-one/	Easy
-https://leetcode.com/problems/longest-arithmetic-sequence/	Medium
-https://leetcode.com/problems/longest-consecutive-sequence/	Hard
 https://leetcode.com/problems/island-perimeter/	Easy
 https://leetcode.com/problems/continuous-subarray-sum/	Medium
-https://leetcode.com/problems/unique-paths/	Medium
 https://leetcode.com/problems/validate-binary-search-tree/	Medium
 https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/	Medium
 https://leetcode.com/problems/binary-tree-right-side-view/	Medium
@@ -95,14 +97,11 @@ https://leetcode.com/problems/divide-two-integers/	Medium
 https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/	Medium
 https://leetcode.com/problems/as-far-from-land-as-possible/	Medium
 https://leetcode.com/problems/merge-sorted-array/	Easy
-https://leetcode.com/problems/insert-delete-getrandom-o1/	Medium
 https://leetcode.com/problems/find-duplicate-file-in-system/	Medium
 https://leetcode.com/problems/arithmetic-slices/	Medium
 https://leetcode.com/problems/count-numbers-with-unique-digits/	Medium
 https://leetcode.com/problems/queue-reconstruction-by-height/	Medium
 https://leetcode.com/problems/task-scheduler/	Medium
-https://leetcode.com/problems/jump-game/	Medium
-https://leetcode.com/problems/decode-ways/	Medium
 https://leetcode.com/problems/wildcard-matching/	
 https://leetcode.com/problems/assign-cookies/	Easy
 https://leetcode.com/problems/burst-balloons/	Hard
@@ -175,7 +174,6 @@ https://leetcode.com/problems/android-unlock-patterns/	Medium
 https://leetcode.com/problems/binary-tree-maximum-path-sum/	Hard
 https://leetcode.com/problems/minimum-domino-rotations-for-equal-row/	
 https://leetcode.com/problems/maximal-square/	Medium
-https://leetcode.com/problems/evaluate-reverse-polish-notation/	Medium
 https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/	Medium
 https://leetcode.com/problems/strobogrammatic-number-ii/	Medium
 https://leetcode.com/problems/odd-even-jump/	
