@@ -37,8 +37,8 @@ public:
             minHeap.insert(num); 
             if(minHeap.size() > k)
                 minHeap.erase(minHeap.begin());
-                //minHeap.erase(*(minHeap.begin())) is incorrect 
-                //as it will delete all occurance of smallest value.
+                // minHeap.erase(*(minHeap.begin())) is incorrect 
+                // as it will delete all occurance of smallest value.
         }
         return *(minHeap.begin());
     }
@@ -72,7 +72,7 @@ Space : O(1)
 ```cpp
 like binary search reduce the smaple space as we go.
 
-1. using quick sort partiton like algo , partition all the elements >= to nums[right] and return pivot index.
+1. using quick sort partiton like algo , partition all the elements >= to nums[right] to the left and return pivot index.
 2. if partiton index is grater than k-1 reduce the smaple space by moving the right pointer to pivot - 1;
 else move left pointer to pivot + 1.
 3. repeat untill pivot == k - 1. 
@@ -114,7 +114,7 @@ public:
             else
                 left = pivot + 1;
         }
-        return -1;
+        return -1; // unreachable code.
     }
 };
 ```
