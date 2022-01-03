@@ -17,6 +17,8 @@ public class SplitWise {
         PriorityQueue<Split> usersWhoGet = new PriorityQueue<>(new SplitMaxComparator());
         PriorityQueue<Split> usersWhoOwe = new PriorityQueue<>(new SplitMaxComparator());
 
+
+        // this is not accurate algo, it guratees min cash flow not min transations.
         for(Expense exp:grpExpense){
             String userWhoPaid = exp.getPaidBy();
             Integer paidAmount = exp.getPaidAmount();
@@ -53,8 +55,8 @@ public class SplitWise {
         while(!usersWhoGet.isEmpty()){
             Split userWhoGet = usersWhoGet.poll();
             String userWhoGetName = userWhoGet.getUserName();
-            grpBalanceSheet.put(userWhoGetName,new ArrayList<>());
             int userWhoGetAmount = userWhoGet.getAmount();
+            grpBalanceSheet.put(userWhoGetName,new ArrayList<>());
             int amountRemaining = userWhoGetAmount;
             while(!usersWhoOwe.isEmpty() && amountRemaining > 0){
                 Split userWhoOwe = usersWhoOwe.poll();

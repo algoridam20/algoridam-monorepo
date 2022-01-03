@@ -18,3 +18,10 @@
 15. Design Cricinfo
 16. Design Facebook - a social network
 ```
+
+```order of problems
+1. Design an ATM // pending 
+2. Design a Parking Lot // solve today
+3. Design an Elevator // 
+4. https://bucky21.medium.com/how-i-cracked-the-machine-coding-round-of-flipkart-deb4c1a2a404 
+5. https://github.com/paragkanodia/RideSharing 
