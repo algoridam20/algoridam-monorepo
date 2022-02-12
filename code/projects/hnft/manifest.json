@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "version": "1.0",
+    "name": "History",
+    "description": "Crawls history",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "history",
+        "storage",
+        "activeTab",
+        "scripting"
+    ]
+}

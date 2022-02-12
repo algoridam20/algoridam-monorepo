@@ -22,6 +22,6 @@
 ```order of problems
 1. Design an ATM // pending 
 2. Design a Parking Lot // solve today
-3. Design an Elevator // 
+3. Design an Elevator //  https://medium.com/geekculture/system-design-elevator-system-design-interview-question-6e8d03ce1b44 
 4. https://bucky21.medium.com/how-i-cracked-the-machine-coding-round-of-flipkart-deb4c1a2a404 
 5. https://github.com/paragkanodia/RideSharing 
