@@ -19,3 +19,12 @@ Suggestions and pull requests are welcomed!.
 
 This project was bootstrapped with [Chrome Extension CLI](https://github.com/dutiyesh/chrome-extension-cli)
 
+## Run locally
+
+```
+cd /hnft
+npm i
+npm run watch
+cd src/
+node composite.js
+```
