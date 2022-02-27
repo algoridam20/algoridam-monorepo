@@ -28,3 +28,7 @@ npm run watch
 cd src/
 node composite.js
 ```
+
+## Reference
+
+1. jimp examples: https://blog.logrocket.com/image-processing-with-node-and-jimp/
