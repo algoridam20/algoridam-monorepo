@@ -7,12 +7,12 @@
 ## code impl: 
 
 ```cpp
-class DisjoinedSet {
+class DisjoinetSet {
 public:
     vector<int> size;
     vector<int> parent;
     int totalSets;
-    DisjoinedSet(int n){
+    DisjoinetSet(int n){
         size = vector<int>(n,1);
         parent = vector<int>(n,1);
         totalSets = n;
