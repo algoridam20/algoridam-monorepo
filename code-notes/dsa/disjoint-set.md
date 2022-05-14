@@ -1,18 +1,18 @@
 # Disjoinet set with path compression and size (rank) optimization.
 
-## Theory notes
+## theory notes
 
 ![notes](images/graph-djs.png?raw=true "notes")
 
 ## code impl: 
 
 ```cpp
-class DisjoinetSet {
+class DisjointSet {
 public:
     vector<int> size;
     vector<int> parent;
     int totalSets;
-    DisjoinetSet(int n){
+    DisjointSet(int n){ //O(n)
         size = vector<int>(n,1);
         parent = vector<int>(n,1);
         totalSets = n;
@@ -21,13 +21,13 @@ public:
             parent[i] = i;
         }
     }
-    int find(int x){
+    int find(int x){ //O(Aplha(n))
         if(parent[x] == x){
             return x;
         }
         return parent[x] = find(parent[x]);
     }
-    void unionSet(int x,int y){
+    void unionSet(int x,int y){ //O(Aplha(n))
         int X = find(x);
         int Y = find(y);
         if(X == Y) return;
@@ -42,7 +42,7 @@ public:
         totalSets--;
         return;
     }
-    bool inSameSet(int x,int y){
+    bool inSameSet(int x,int y){ //O(Aplha(n))
         return find(x) == find(y);
     }
 };
